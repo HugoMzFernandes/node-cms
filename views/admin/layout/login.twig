@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>{{title ? title ~ ' | Biologix Admin' : 'Biologix Admin' }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/admin/stylesheets/style.css">
+  </head>
+  <base href="/admin/">
+  <body class="app flex-row align-items-center">
+  	{% block content %}{% endblock %}
+  </body>
+</html>

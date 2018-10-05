@@ -1,0 +1,60 @@
+{% extends "admin/layout/main.twig" %}
+{% block content %}
+{% set breadcrumbs = [{ name: "Usuários" }] %}
+
+<div class="container-fluid">
+
+  <div class="card">
+    <div class="card-header">{{title}} <span class="badge badge-danger">{{users|length}}</span></div>
+    <div class="card-body">
+      
+      <table class="table table-responsive-sm table-hover table-outline mb-0">
+        <thead class="thead-light">
+          <tr>
+            <th class="d-md-down-none">Nome</th>
+            <th>Username</th>
+            <th class="text-center d-md-down-none">Data de Registro</th>
+            <th class="text-center">Função</th>
+            <th class="d-md-down-none text-center">Status</th>
+            {% if userData.role == "dev" or userData.role == "admin" %}
+            <th>Ações</th>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td class="d-md-down-none">{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td class="text-center d-md-down-none">{{user.register_date|date("d/m/Y")}}</td>
+            <td class="text-center">{{user.role}}</td>
+            <td class="d-md-down-none text-center">
+              {% if user.status %}
+              <span class="badge badge-success">Ativo</span>
+              {% else %}
+              <span class="badge badge-danger">Desativado</span>
+              {% endif %}
+            </td>
+            {% if userData.role == "dev" or userData.role == "admin" %}
+            <td>
+              <a href="/admin/users/edit/{{user.id}}" class="btn btn-info"><i class="fa fa-edit"></i> Editar</a>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="card-footer">
+      {% if userData.role == "dev" or userData.role == "admin" %}
+      <a href="/admin/users/new" class="btn btn-lg btn-success">Novo Usuário</a>
+      {% endif %}
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}
+

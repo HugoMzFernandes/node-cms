@@ -1,0 +1,42 @@
+{% set userData = userData %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>{{title ? title ~ ' | Biologix Admin' : 'Biologix Admin' }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="/admin/stylesheets/style.css">
+  </head>
+  <base href="/admin/">
+  <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+    {% include "../partial/header.twig" %}
+    <div class="app-body">
+      {% include "../partial/sidebar.twig" %}
+
+      <main class="main">
+
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/admin">Admin</a>
+          </li>
+        {% if breadcrumbs %}
+          {% for item in breadcrumbs %}
+          <li class="breadcrumb-item active">
+            {% if item.path %}
+            <a href="{{item.path}}">{{item.name}}</a>
+            {% else %}
+            {{item.name}}
+            {% endif %}
+          </li>
+          {% endfor %}
+        {% endif %}
+        </ol>
+
+        {{ error_messages }}
+
+        {% block content %}{% endblock %}
+      <main>
+    </div>
+    {% include "../partial/footer.twig" %}
+  </body>
+</html>

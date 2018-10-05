@@ -1,0 +1,29 @@
+{% extends "admin/layout/main.twig" %} {% block content %} {% set breadcrumbs = [{ name: "Artigos" }] %}
+
+<div class="container-fluid">
+
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> {{title}}
+    </div>
+
+    <div class="card-body">
+      <div class="list-group">
+        {% for article in articles %}
+          <a class="list-group-item list-group-item-action flex-column align-items-start" href="/admin/articles/edit/{{article.id}}">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{article.title}}</h5>
+              <small>{{article.data|date("d/m/Y")}}</small>
+            </div>
+            <p class="mb-1">{{article.description}}</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="card-footer">
+      <a href="/admin/articles/new" class="btn btn-lg btn-success">Novo Artigo</a>
+    </div>
+  </div>
+
+</div> <!-- /.container -->
+{% endblock %}

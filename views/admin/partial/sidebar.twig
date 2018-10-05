@@ -1,0 +1,122 @@
+<div class="sidebar">
+  <nav class="sidebar-nav ps ps--active-y">
+    <ul class="nav">
+
+      <!-- <li class="nav-title">Páginas</li>
+
+      <li>
+        <div class="nav-item">
+          <a class="nav-link" href="#">
+            <div class="nav-icon icon-doc"></div> Custom Page 1
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="nav-item">
+          <a class="nav-link" href="#">
+            <div class="nav-icon icon-doc"></div> Custom Page 2
+          </a>
+        </div>
+      </li>
+
+      <li>
+        <div class="nav-item">
+          <a class="nav-link" href="#">
+            <div class="nav-icon icon-doc"></div> Custom Page 3
+          </a>
+        </div>
+      </li> -->
+
+
+      <li class="nav-title">Outros Conteúdo</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/articles">
+          <i class="nav-icon icon-note"></i> Artigos
+        </a>
+      </li>
+<!-- 
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-picture"></i> Galerias
+        </a>
+      </li> -->
+
+
+      <!-- <li class="nav-title">Marketing</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-layers"></i> Banners
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-bubble"></i> Contato
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-envelope-open"></i> Mailing
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-call-in"></i> Telefones
+        </a>
+      </li>
+
+      <li class="nav-title">Seo/Métricas</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-shuffle"></i> Redirects
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="main.html">
+          <i class="nav-icon icon-bubbles"></i> Redes Social
+        </a>
+      </li> -->
+
+      {% if (userData.role == "dev" or userData.role == "admin") %}
+      <li class="nav-title">Admin</li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/users">
+          <i class="nav-icon icon-user"></i> Usuários
+        </a>
+      </li>
+      {% endif %}
+
+      <!-- {% if userData.role == "dev" %}
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/setup">
+          <i class="nav-icon icon-settings"></i> Configurações
+        </a>
+      </li>
+      {% endif %} -->
+
+      <li class="nav-title">Conta</li>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="nav-icon icon-lock"></i> Mudar Senha
+        </a>
+      </li> -->
+
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/logout">
+          <i class="nav-icon icon-logout"></i> Sair
+        </a>
+      </li>
+
+    </ul>
+    <div class="ps__rail-x" style="left: 0px; bottom: -300px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 300px; height: 838px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 211px; height: 591px;"></div></div></nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+  </div>

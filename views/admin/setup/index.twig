@@ -1,0 +1,75 @@
+{% extends "admin/layout/main.twig" %}
+{% block content %}
+{% set breadcrumbs = [{ name: "Configurações" }] %}
+
+  <div class="container-fluid">
+
+  <form action="/admin/setup" method="post" class="form-horizontal">
+  
+  <div class="card">
+    <div class="card-header">
+      Configurações do Site
+    </div>
+    <div class="card-body">
+      <div class="container-fluid p-0">
+        <div class="row">
+          <div class="col-md-6">
+            
+            <div class="form-group">
+              <label for="hf-name">Nome do Site</label>
+              <input type="text" id="hf-name" name="name" value="{{user.name}}" class="form-control" placeholder="Nome do site">
+            </div>
+            <div class="form-group">
+              <label for="hf-status">Status</label>
+              <select id="hf-status" name="status" id="" class="form-control">
+                <option {{(user.status == true) ? 'selected' : ''}} value="true">Ativo</option>
+                <option {{(user.status == false) ? 'selected' : ''}} value="false">Bloqueado</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="hf-role">Função</label>
+              <select name="role" id="hf-role" class="form-control">
+                <option {{(user.role == 'dev') ? 'selected' : ''}} value="dev">Desenvolvedor</option>
+                <option {{(user.role == 'admin') ? 'selected' : ''}} value="admin">Administrador</option>
+                <option {{(user.role == 'editor') ? 'selected' : ''}} value="editor">Editor</option>
+              </select>
+            </div>
+          </div> <!-- /.col -->
+          <div class="col-md-6">
+            
+            {% if user %}
+            <div class="form-check checkbox">
+              <input id="hf-update_pass" type="checkbox" class="form-check-input" name="update_pass">
+              <label for="hf-update_pass" class="form-check-label">
+                Alterar Senha
+              </label>
+            </div>
+            <hr>
+            {% endif %}
+
+            <div class="form-group">
+              <label for="">{{ user ? 'Nova ' : '' }}Senha</label>
+              <input name="password" type="password" class="form-control" placeholder="Nova senha">
+            </div>
+
+            {% if user %}
+            <div class="form-group">
+              <label for="">Repetir nova Senha</label>
+              <input name="re_password" type="password" class="form-control" placeholder="Repita a nova senha">
+            </div>
+            {% endif %}
+          </div> <!-- /.col -->
+        </div> <!-- /.row -->
+      </div> <!-- /.container -->
+    </div><!--/.card-body -->
+    <div class="card-footer">
+      <button type="submit" class="btn btn-lg btn-primary">
+      <i class="fa fa-dot-circle-o"></i> Salvar</button>
+      <a href="/admin/users" class="btn btn-lg btn-danger">
+      <i class="fa fa-ban"></i> Cancelar</a>
+    </div>
+
+  </div><!-- /.card -->
+  </form>
+</div> <!--/.container -->
+{% endblock %}

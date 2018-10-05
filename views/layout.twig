@@ -1,0 +1,32 @@
+{% set meta_siteName = "Site Name" %}
+{% set meta_siteTwitter = "@siteTwitter" %}
+{% set meta_themeColor = "#821010" %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+	<meta charset="UTF-8">
+	<title>{{ meta_title ? meta_title ~ ' | ' ~ meta_siteName : meta_siteName }}</title>
+	<meta name="description" content="{{ meta_description ? meta_description : '' }}" />
+	<!-- open graph -->
+	<meta property="og:locale" content="pt_BR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{meta_siteName}}" />
+	<meta property="og:description" content="{{ meta_description ? meta_description : '' }}" />
+	<meta property="og:url" content="{{ url }}" />
+	<meta property="og:site_name" content="{{meta_siteName}}" />
+	<meta property="og:locale" content="pt_BR" />
+	<!-- twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:description" content="{{ meta_description ? meta_description : meta_SiteName }}" />
+	<meta name="twitter:title" content="{{meta_siteName}}" />
+	<meta name="twitter:site" content="{{siteTwitter}}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<meta name="theme-color" content="{{meta_themeColor}}">
+
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+  <body>
+  	{% block content %}{% endblock %}
+  </body>
+</html>

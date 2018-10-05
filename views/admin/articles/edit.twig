@@ -1,0 +1,63 @@
+{% extends "admin/layout/main.twig" %}
+{% block content %}
+{% set breadcrumbs = [{ name: "Artigos", path: "/admin/articles" }, { name: "Editar" }] %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Editar {{articles.title}}</div>
+        <div class="card-body">
+          
+          <div class="form-group">
+            <label for="">Título da publicação</label>
+            <input type="text" class="form-control" value="{{articles.title}}">
+          </div>
+
+          <div class="form-group">
+              <label for="">Breve descrição da publicação</label>
+            <input type="text" class="form-control" value="{{articles.description}}">
+          </div>
+
+          <div class="form-group">
+              <label for="">URL</label>
+            <input type="text" class="form-control" value="{{articles.url}}">
+          </div>
+
+          <div class="form-group">
+            <label for="">Data de publicação</label>
+            <input name="daterange" class="form-control" type="text" value="{{articles.data|date("d/m/Y")}}">
+          </div>
+
+          <div class="form-group">
+            <label for="">Conteudo da publicação</label>
+            <input class="form-control" type="text" value="{{articles.content}}">
+          </div>
+
+        </div>
+      </div>
+    </div> <!--col -->
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Imagem de Destaque
+        </div>
+        <div class="card-body">
+          <img src="/admin/imagens/{{article.image}}" style="max-height: 200px" class="img-fluid" alt="">
+        </div>
+        
+        <div class="card-footer">
+            <button type="submit" class="btn btn-lg btn-primary">
+            <i class="fa fa-dot-circle-o"></i> Salvar</button>
+            <a href="/admin/users" class="btn btn-lg btn-danger">
+            <i class="fa fa-ban"></i> Cancelar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+

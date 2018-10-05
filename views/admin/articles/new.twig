@@ -1,0 +1,57 @@
+{% extends "admin/layout/main.twig" %}
+{% block content %}
+{% set breadcrumbs = [{ name: "Artigos", path: "/admin/articles" }, { name: "Novo" }] %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Novo Artigo</div>
+        <div class="card-body">
+          <form action="./articles/new" method="post">
+            <div class="form-group">
+              <input name="title" type="text" class="form-control" placeholder="Título da publicação">
+            </div>
+
+            <div class="form-group">
+              <input name="description" type="text" class="form-control" placeholder="Breve descrição da publicação">
+            </div>
+
+            <div class="form-group">
+              <input name="url" type="text" class="form-control" placeholder="URL da publicação">
+            </div>
+
+            <div class="form-group">
+              <input name="daterange" class="form-control" type="text" value="{{ "now"|date("d/m/Y") }}">
+            </div>
+
+            <div class="form-group">
+              <label for="">Conteudo da publicação</label>
+              <input name="content" class="form-control" type="text">
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary">
+            <i class="fa fa-dot-circle-o"></i> Salvar</button>
+            <a href="/admin/articles" class="btn btn-lg btn-danger">
+            <i class="fa fa-ban"></i> Cancelar</a>
+          </form>
+
+        </div>
+      </div>
+    </div> <!--col -->
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          Imagem de Destaque
+        </div>
+        <div class="card-body">
+          <img src="/admin/imagens/{{article.image}}" style="max-height: 200px" class="img-fluid" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
